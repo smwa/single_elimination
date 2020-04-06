@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: single-elimination
-Version: 1.0.0
+Version: 1.1.0
 Summary: A single elimination tournament match handler.
 Home-page: https://github.com/smwa/double_elimination
 Author: Michael Smith

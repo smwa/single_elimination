@@ -136,6 +136,8 @@ if __name__ == '__main__':
     checkActiveMatches(tourney, [[3, 5]])
     add_win(tourney, 3)
     checkActiveMatches(tourney, [])
+    if tourney.get_winners()[0] != 3:
+        raise Exception("Incorrect winner")
 
     print("Starting performance test")
 

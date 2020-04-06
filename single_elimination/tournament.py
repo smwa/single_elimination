@@ -38,6 +38,7 @@ class Tournament:
                     next_round_participants.append(match.get_winner_participant())
                     self.__matches.append(match)
             incoming_participants = next_round_participants
+        self.__winner = incoming_participants[0]
 
     def __iter__(self):
         return iter(self.__matches)
@@ -69,6 +70,15 @@ class Tournament:
         if len(matches) > 0:
             return matches[0]
         return None
+
+    def get_winners(self):
+        """
+        Returns None if the winner has not been decided yet,
+        and returns a list containing the single victor otherwise.
+        """
+        if len(self.get_active_matches()) > 0:
+            return None
+        return [self.__winner.get_competitor()]
 
     def add_win(self, competitor):
         """
