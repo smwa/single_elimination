@@ -1,4 +1,4 @@
-from double_elimination import Match, Participant
+from single_elimination import Match, Participant
 
 competitors = ['1', '2']
 
