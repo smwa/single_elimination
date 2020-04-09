@@ -9,7 +9,8 @@ def printMatches(matches):
 
 
 def add_win(tourney, competitor):
-    tourney.add_win(competitor)
+    m = tourney.get_active_matches_for_competitor(competitor)[0]
+    tourney.add_win(m, competitor)
 
 
 def checkActiveMatches(tourney, competitorPairs):
@@ -136,17 +137,17 @@ if __name__ == '__main__':
     checkActiveMatches(tourney, [[3, 5]])
     add_win(tourney, 3)
     checkActiveMatches(tourney, [])
-    if tourney.get_winners()[0] != 3:
+    if tourney.get_winners() != [3]:
         raise Exception("Incorrect winner")
 
     print("Starting performance test")
 
-    n = 2048
+    n = 20000
     tourney = SingleEliminationTournament(range(n))
     matches = tourney.get_active_matches()
     while len(matches) > 0:
         for match in matches:
-            tourney.add_win(match.get_participants()[0].get_competitor())
+            tourney.add_win(match, match.get_participants()[0].get_competitor())
         matches = tourney.get_active_matches()
 
     print("Single elimination tests passed")
